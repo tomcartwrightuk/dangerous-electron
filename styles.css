@@ -1,3 +1,12 @@
-/* styles.css */
-
-/* Add styles here to customize the appearance of your app */
+body {
+  background-color: #188635;
+  color: #DDD;
+  font-family: Helvetica, Sans-Serif;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 30px;
+}
+img {
+  height: 480px;
+  margin: auto;
+}
