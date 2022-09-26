@@ -5,22 +5,14 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 350,
+    height: 575,
+    titleBarStyle: "hidden",
     devTools: true,
-    webPreferences: {
-      nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-  // mainWindow.loadURL('https://dangerous-electron-frontend.onrender.com')
-
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished

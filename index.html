@@ -5,16 +5,27 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>Kitten world</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    This is a friendly electron app that link to a very dangerous site
+    <style>
+      body {
+        background-color: #188635;
+        color: #DDD;
+        font-family: Helvetica, Sans-Serif;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 30px;
+      }
+      img {
+        height: 480px;
+        margin: auto;
+      }
+    </style>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-    <p>
-      <a href="https://dangerous-electron-frontend.onrender.com">⚠️ Link to danger ⚠️</a>
-    </p>
+    <h2>Click on the kitten to enter</h2>
+    <a href="https://dangerous-electron-frontend.onrender.com">
+      <img src="images/kitten-photo.jpeg">
+    </a>
   </body>
 </html>

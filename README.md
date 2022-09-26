@@ -1,3 +1,11 @@
+# Dangerous electron
+
+Proceed with a sense danger.
+
+This app demonstrates how older versions of Electron that supported `nodeIntegration` be default, could allow packages and web resources to access system resources on the users machine.
+
+Loads an app that loads an initial page and includes a link to a remotely hosted site that just requires `fs` and reads things from the users computer. Security!
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
